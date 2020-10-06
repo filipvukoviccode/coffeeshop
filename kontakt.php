@@ -1,7 +1,7 @@
 ﻿<?php
 if(isset($_POST['email'])) {
  
-    // definisanje adrese za slanje i subject-a poruke (fiksirano)
+    // definition of address for sending and message subject (fixated)
     $email_to = "55555@proba.zs";
     $email_subject = "Upit sa veb-sajta";
  
@@ -16,44 +16,44 @@ if(isset($_POST['email'])) {
     }
  
  
-    // validacija unetih podataka
+    // validation of entered data
     if(!isset($_POST['ime']) ||
         !isset($_POST['email']) 	||
         !isset($_POST['telefon']) ||
         !isset($_POST['poruka'])) 
 		{
-        died('Postoji greška u unosu podataka.');       
+        died('There is a mistake in data entry.');       
 	}
  
      
  
-    $first_name = $_POST['ime']; // neophodno
-    $email_from = $_POST['email']; // neophodno
-    $telephone = $_POST['telefon']; // nije neophodno
-    $comments = $_POST['poruka']; // neophodno
+    $first_name = $_POST['ime']; // necessary
+    $email_from = $_POST['email']; // necessary
+    $telephone = $_POST['telefon']; // not necessary
+    $comments = $_POST['poruka']; // necessary
  
     $error_message = "";
     $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
  
   if(!preg_match($email_exp,$email_from)) {
-    $error_message .= 'Neispravan format e-mail adrese.<br />';
+    $error_message .= 'Invalid email address format.<br />';
   }
  
     $string_exp = "/^[A-Za-z .'-]+$/";
  
   if(!preg_match($string_exp,$first_name)) {
-    $error_message .= 'Lično ime mora sadržati samo slova.<br />';
+    $error_message .= 'The first name must contain only letters.<br />';
   }
  
   if(strlen($comments) < 2) {
-    $error_message .= 'Nedostaje poruka.<br />';
+    $error_message .= 'Not sufficient message.<br />';
   }
  
   if(strlen($error_message) > 0) {
     died($error_message);
   }
  
-    $email_message = "Detalji sa kontakt-forme.\n\n";
+    $email_message = "Details from contact form.\n\n";
  
      
     function clean_string($string) {
@@ -63,12 +63,12 @@ if(isset($_POST['email'])) {
  
      
  
-    $email_message .= "Ime: ".clean_string($first_name)."\n";
+    $email_message .= "Name: ".clean_string($first_name)."\n";
     $email_message .= "e-mail: ".clean_string($email_from)."\n";
-    $email_message .= "telefon: ".clean_string($telephone)."\n";
-    $email_message .= "poruka: ".clean_string($comments)."\n";
+    $email_message .= "telephone: ".clean_string($telephone)."\n";
+    $email_message .= "message: ".clean_string($comments)."\n";
  
-// zaglavlje (header) e-maila
+// e-mail header
 $headers = 'From: '.$email_from."\r\n".
 'Reply-To: '.$email_from."\r\n" .
 'X-Mailer: PHP/' . phpversion();
@@ -78,7 +78,7 @@ $headers = 'From: '.$email_from."\r\n".
 <!doctype html>
 <html>
 <head>
-<title>Poslato</title>
+<title>Sent</title>
 <link rel="stylesheet" type="text/css" href="assets/css/rez.css">
 <script type="text/javascript" src="assets/js/rez.js"></script>
 </head>
@@ -91,14 +91,14 @@ $headers = 'From: '.$email_from."\r\n".
         stroke-width="0.5" 
         points="0.9,0.1 0.1,0.5 0.9,0.9" 
   />
-</svg> Nazad
+</svg> Back
 </a>
 <div class="background-wrapper">
-	<h1 id="visual">hvala!</h1>
+	<h1 id="visual">Thanks!</h1>
 </div>
-<p><font color="#133F13">Poruka je poslata.</font> Javićemo Vam se prvom prilikom.<br />
+<p><font color="#133F13">Message is sent.</font> We will let you know as soon as possible.<br />
 
-	<?php echo "<font color='#133F13'>Sada je " . date("d.m.Y, "), date("H:i:s") . "</font>"; ?></p>
+	<?php echo "<font color='#133F13'>Now is " . date("d.m.Y, "), date("H:i:s") . "</font>"; ?></p>
 
 </body>
 </html>

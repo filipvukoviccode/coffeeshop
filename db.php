@@ -1,9 +1,9 @@
 <?php
   $servername = "localhost";
-  $username = "filip"; // Korisnicko ime za pristup bazi
-  $password = "test1234"; // Lozinka baze
-  $dbname = "cfs"; // Naziv baze podataka
-  $port = "3306"; // Naziv baze podataka
+  $username = "filip"; // Username for database access
+  $password = "test123"; // Database password
+  $dbname = "cfs"; // Database name
+  $port = "3306"; // Port number
 
   $conn = new mysqli($servername, $username, $password, $dbname, $port);
 

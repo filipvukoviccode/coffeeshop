@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Greška</title>
+<title>Error</title>
 <link rel="stylesheet" type="text/css" href="assets/css/rez.css">
 <script type="text/javascript" src="assets/js/rez.js"></script>
 </head>
@@ -15,11 +15,11 @@
         stroke-width="0.1" 
         points="0.9,0.1 0.1,0.5 0.9,0.9" 
   />
-</svg> Nazad
+</svg> Back
 </a>
 <div class="background-wrapper">
-	<h1 id="visual">greška</h1>
+	<h1 id="visual">error</h1>
 	 </div>
 
-<p>Greška pri slanju.<br /><br /><b><font color=red>
+<p>Error while sending.<br /><br /><b><font color=red>
 	

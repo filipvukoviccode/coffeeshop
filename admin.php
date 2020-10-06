@@ -113,13 +113,13 @@
       <h2 style="font-size:25px;">Admin Panel</h2>
       <hr/>
     <?php if($logOk == 0) { ?>
-      <p>Pogresan email ili lozinka.</p><br/><br/>
+      <p>Wrong e-mail or password.</p><br/><br/>
     <?php } ?>
     <div>
     <form action="" method="post">
-      <input type="text" name="email" placeholder="E-Mai Adresa" required>
-      <input type="password" name="password" placeholder="Lozinka" required>
-      <input type="submit" value="PRIJAVI ME">
+      <input type="text" name="email" placeholder="E-Mail Address" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <input type="submit" value="Sign Me Up">
     </form>
   </div>
     </section>
@@ -128,7 +128,7 @@
 <?php } else { ?>
   <main>
     <section id="menu" class="breakpoint" style="display:inherit;">
-      <h2 style="font-size:25px;">Pregled Porudžbina</h2>
+      <h2 style="font-size:25px;">See Shopping Cart</h2>
       <hr/>
       <?php
       $sql = "SELECT * FROM orders";
@@ -146,10 +146,10 @@
         <b>Podaci o Korisniku:</b> <?php echo implode(", ", $userData);?><br/><br/>
         <table id="table">
   <tr>
-    <th>Naziv Proizvoda</th>
-    <th>Kategorija</th>
-    <th>Opis</th>
-		<th>Cena</th>
+    <th>Product Name</th>
+    <th>Category</th>
+    <th>Description</th>
+		<th>Price</th>
   </tr>
 <?php
 foreach(explode(",", $row["orderedProducts"]) as $productId) {
@@ -171,37 +171,37 @@ foreach(explode(",", $row["orderedProducts"]) as $productId) {
 </table>
 <div style="text-align:right">
 	<br/>
-	<h1>UKUPNO: <?php echo $Total;?>RSD</h1>
+	<h1>Overall: <?php echo $Total;?>RSD</h1>
 </div>
         <hr/>
       <?php
     } }
     ?>
     <br/><br/>
-    <h2 style="font-size:25px;">Pregled Kategorija</h2>
+    <h2 style="font-size:25px;">Category Overview</h2>
     <hr/>
     <?php
     $sql = "SELECT categoryName FROM categories";
     $result = $conn->query($sql);
     ?>
-    <b>Postojeće Kategorije:</b> | <?php while($row = $result->fetch_assoc()) echo $row["categoryName"] . " | ";?>
+    <b>Existing Categories:</b> | <?php while($row = $result->fetch_assoc()) echo $row["categoryName"] . " | ";?>
     <br/><br/>
     <form action="" method="POST">
-      <input type="text" name="categoryName" placeholder="Naziv Kategorije">
-      <input type="submit" value="Dodaj Kategoriju">
+      <input type="text" name="categoryName" placeholder="Category Name">
+      <input type="submit" value="Add Category">
     </form>
     <br/><br/>
-    <h2 style="font-size:25px;">Pregled Proizvoda</h2>
+    <h2 style="font-size:25px;">Product Overview</h2>
     <hr/>
     <?php
     $sql = "SELECT productName FROM products";
     $result = $conn->query($sql);
     ?>
-    <b>Postojeći Proizvodi:</b> | <?php while($row = $result->fetch_assoc()) echo $row["productName"] . " | ";?>
+    <b>Existing Products:</b> | <?php while($row = $result->fetch_assoc()) echo $row["productName"] . " | ";?>
     <br/><br/>
     <form action="" method="POST" enctype="multipart/form-data">
-      <input type="text" name="productName" placeholder="Naziv Proizvoda">
-      <input type="file" name="image" placeholder="Slika Proizvoda">
+      <input type="text" name="productName" placeholder="Product Name">
+      <input type="file" name="image" placeholder="Product Image">
       <?php
       $sql = "SELECT * FROM categories";
       $result = $conn->query($sql);
@@ -211,23 +211,23 @@ foreach(explode(",", $row["orderedProducts"]) as $productId) {
           <option value="<?php echo $row["id"];?>"><?php echo $row["categoryName"];?></option>
         <?php } ?>
       </select>
-      <input type="text" name="productDescription" placeholder="Opis Proizvoda">
-      <input type="text" name="productPrice" placeholder="Cena Proizvoda">
-      <input type="submit" value="Dodaj Proizvod">
+      <input type="text" name="productDescription" placeholder="Product Description">
+      <input type="text" name="productPrice" placeholder="Product Price">
+      <input type="submit" value="Add Product">
     </form>
     <br/><br/>
-    <h2 style="font-size:25px;">Pregled Administratora</h2>
+    <h2 style="font-size:25px;">Admin Overview</h2>
     <hr/>
     <?php
     $sql = "SELECT email FROM admins";
     $result = $conn->query($sql);
     ?>
-    <b>Postojeći Administratori:</b> | <?php while($row = $result->fetch_assoc()) echo $row["email"] . " | ";?>
+    <b>Existing Admins:</b> | <?php while($row = $result->fetch_assoc()) echo $row["email"] . " | ";?>
     <br/><br/>
     <form action="" method="POST">
-      <input type="text" name="email" placeholder="E-Mail Adresa">
-      <input type="password" name="password" placeholder="Lozinka">
-      <input type="submit" value="Dodaj Administratora">
+      <input type="text" name="email" placeholder="E-Mail Address">
+      <input type="password" name="password" placeholder="Password">
+      <input type="submit" value="Add Admin">
     </form>
     </section>
 

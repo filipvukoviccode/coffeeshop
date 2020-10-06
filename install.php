@@ -9,9 +9,9 @@
           )";
 
   if ($conn->query($sql) === TRUE) {
-    //echo "Tabela Admins je uspesno kreirana.<br/>";
+    //echo "Tabel Admins is successfully created.<br/>";
   } else {
-    echo "Greska: " . $conn->error . "<br/>";
+    echo "Error: " . $conn->error . "<br/>";
   }
 
   $sql = "CREATE TABLE IF NOT EXISTS users (
@@ -28,9 +28,9 @@
           )";
 
   if ($conn->query($sql) === TRUE) {
-    //echo "Tabela Users je uspesno kreirana.<br/>";
+    //echo "Tabel Users is created successfully.<br/>";
   } else {
-    echo "Greska: " . $conn->error . "<br/>";
+    echo "Error: " . $conn->error . "<br/>";
   }
 
   $sql = "CREATE TABLE IF NOT EXISTS categories (
@@ -41,9 +41,9 @@
           )";
 
   if ($conn->query($sql) === TRUE) {
-    //echo "Tabela Categories je uspesno kreirana.<br/>";
+    //echo "Tabel Categories is successfully created.<br/>";
   } else {
-    echo "Greska: " . $conn->error . "<br/>";
+    echo "Error: " . $conn->error . "<br/>";
   }
 
   $sql = "CREATE TABLE IF NOT EXISTS products (
@@ -57,9 +57,9 @@
           )";
 
   if ($conn->query($sql) === TRUE) {
-    //echo "Tabela Products je uspesno kreirana.<br/>";
+    //echo "Tabel Products is created successfully.<br/>";
   } else {
-    echo "Greska: " . $conn->error . "<br/>";
+    echo "Error: " . $conn->error . "<br/>";
   }
 
   $sql = "CREATE TABLE IF NOT EXISTS carts (
@@ -70,9 +70,9 @@
           )";
 
   if ($conn->query($sql) === TRUE) {
-    //echo "Tabela Carts je uspesno kreirana.<br/>";
+    //echo "Tabel Carts is successfully created.<br/>";
   } else {
-    echo "Greska: " . $conn->error . "<br/>";
+    echo "Error: " . $conn->error . "<br/>";
   }
 
   $sql = "CREATE TABLE IF NOT EXISTS orders (
@@ -83,9 +83,9 @@
           )";
 
   if ($conn->query($sql) === TRUE) {
-    //echo "Tabela Orders je uspesno kreirana.<br/>";
+    //echo "Tabel Orders is successfully created.<br/>";
   } else {
-    echo "Greska: " . $conn->error . "<br/>";
+    echo "Error: " . $conn->error . "<br/>";
   }
 
   $sql = "SELECT COUNT(id) as adminNum FROM admins";
@@ -116,7 +116,7 @@
        echo "Error: " . $sql . "<br>" . $conn->error;
      }
 
-     $sql = "INSERT INTO `products` (`categoryId`, `productName`, `productImage`, `productDescription`, `productPrice`, `createDate`) VALUES ('2', 'Sacher Torta', 'uploads/SacherTorta.png', 'Prava poslastica za uživanje.', '525.9', '2020-06-18 22:17:10'), ('1', 'Espresso', 'uploads/Espreso.png', 'Odličan izbor za početak dana.', '195.9', '2020-06-18 22:12:16'), ('1', 'Cappucino', 'uploads/Cappucino.png', 'Odličan izbor za uživanje.', '210.9', '2020-06-18 22:13:54'), ('2', 'Ruska Kapa', 'uploads/RuskaKapa.png', 'Prava poslastica uz kafu.', '305', '2020-06-18 22:15:36')";
+     $sql = "INSERT INTO `products` (`categoryId`, `productName`, `productImage`, `productDescription`, `productPrice`, `createDate`) VALUES ('2', 'Sacher Torta', 'uploads/SacherTorta.png', 'The right sweet for enjoyment.', '525.9', '2020-06-18 22:17:10'), ('1', 'Espresso', 'uploads/Espreso.png', 'Great choice to begin the day.', '195.9', '2020-06-18 22:12:16'), ('1', 'Cappucino', 'uploads/Cappucino.png', 'Great choice for enjoyment.', '210.9', '2020-06-18 22:13:54'), ('2', 'Ruska Kapa', 'uploads/RuskaKapa.png', 'The right sweet with coffee.', '305', '2020-06-18 22:15:36')";
 
      if ($conn->query($sql) === TRUE) {
      } else {
@@ -124,7 +124,7 @@
      }
 
      $password = password_hash("User123", PASSWORD_DEFAULT);
-     $sql = "INSERT INTO `users` (`firstName`, `lastName`, `email`, `password`, `address`, `city`, `zipCode`, `country`) VALUES ('Test', 'Test', 'user@test.com', '$password', 'Test Adresa', 'Test Grad', '0', 'Srbija')";
+     $sql = "INSERT INTO `users` (`firstName`, `lastName`, `email`, `password`, `address`, `city`, `zipCode`, `country`) VALUES ('Test', 'Test', 'user@test.com', '$password', 'Test Address', 'Test City', '0', 'Serbia')";
 
      if ($conn->query($sql) === TRUE) {
      } else {
